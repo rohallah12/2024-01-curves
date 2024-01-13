@@ -6,12 +6,12 @@ contract Security {
     mapping(address => bool) public managers;
 
     modifier onlyOwner() {
-        msg.sender == owner;
+        require(msg.sender == owner);
         _;
     }
 
     modifier onlyManager() {
-        managers[msg.sender] == true;
+        require(managers[msg.sender] == true);
         _;
     }
 
